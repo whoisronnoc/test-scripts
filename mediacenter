@@ -1,0 +1,6 @@
+#!/bin/sh
+hamachi logout &
+wait
+hamachi login &
+wait
+kodi
