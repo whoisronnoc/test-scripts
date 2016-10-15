@@ -1,9 +1,14 @@
 #!/bin/bash
 # take in the name of the mouse as a parameter and sets its settings below
-echo $1
-for id in $(xinput --list | sed -n "/${1}.*pointer/s/.*=\([0-9]\+\).*/\1/p")
-do
-  echo $id
-  xinput --set-prop $id "Device Accel Profile" -1
-  xinput --set-prop $id "Device Accel Constant Deceleration" 1
-done
+if [[ -n "$1" ]]
+then
+  echo $1
+  for id in $(xinput --list | sed -n "/${1}.*pointer/s/.*=\([0-9]\+\).*/\1/p")
+  do
+    echo $id
+    xinput --set-prop $id "Device Accel Profile" -1
+    xinput --set-prop $id "Device Accel Constant Deceleration" 1
+  done
+else
+  echo "Device not specified."
+fi
