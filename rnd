@@ -1,2 +1,8 @@
 #!/bin/bash
-echo $[RANDOM%$1]
+# generates a random num 0-1 or by max specified
+if [[ -n "$1" ]]
+then
+  echo $[RANDOM % $1]
+else
+  echo $[RANDOM % 2]
+fi
