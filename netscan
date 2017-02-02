@@ -1,0 +1,7 @@
+#!/bin/bash
+# scan network for other devices
+#IPs=$(ifconfig | grep 'inet addr:' | cut -d: -f2 | awk '{print $1}')
+#for ip in $IPs
+#do
+nmap -sn $1/24 | grep 'report' | sed 's/Nmap scan report for //g'
+#done
