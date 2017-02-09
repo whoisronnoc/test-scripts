@@ -9,5 +9,4 @@ then
 else
 	echo "Log doesn't exist, creating one for today."
 	geeknote create --notebook Logs --title $DATE
-	geeknote edit $DATE
 fi
