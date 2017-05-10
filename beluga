@@ -5,4 +5,4 @@ DEV=$(ls -l /dev/disk/by-id | grep "$ID " | cut -s -d "/" -f 3)
 CHECK=$(sudo fdisk -l /dev/$DEV)
 echo -e "o\nn\np\n1\n\n\nt\n7\nw\n" | sudo fdisk /dev/$DEV
 PART=1
-sudo mkfs.ntfs -f /dev/$DEV$PART
+sudo mkfs.ntfs -f -L BELUGA /dev/$DEV$PART
