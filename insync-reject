@@ -1,0 +1,8 @@
+#!/bin/bash
+# insync-headless script to reject shares and retry errors automatically
+# (run this using crontab)
+if [ $(insync-headless get_status) == "SHARE" ]; then
+	insync-headless reject_all_new_shares $(insync-headless get_account_information | grep '@' )
+elif [ $(insync-headless get_status) == "ERROR" ]; then
+	insync-headless retry_errors
+fi
