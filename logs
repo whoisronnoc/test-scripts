@@ -1,12 +1,30 @@
 #!/bin/bash
 # edit log entry for the current day in geeknote
-DATE=$(date +%Y.%m.%d)
-echo $DATE
-if [[ $(geeknote find $DATE) ]]
+if [[ $# -eq 0 ]]
 then
-	echo 'Log exists, editing.'
-	geeknote edit $DATE
+	DATE=$(date +%Y.%m.%d)
+	echo $DATE
+	if [[ $(geeknote find $DATE) ]]
+	then
+		echo 'Log exists, editing.'
+		geeknote edit $DATE
+	else
+		echo "Log doesn't exist, creating one for today."
+		geeknote create --notebook Logs --title $DATE
+	fi
 else
-	echo "Log doesn't exist, creating one for today."
-	geeknote create --notebook Logs --title $DATE
+	if [[ $1 -eq 'find' ]]
+	then
+		if [[ $2 -eq 'month' ]]
+		then
+			geeknote find $(date +%Y.%m)
+		elif [[ $2 -eq 'day' ]]
+		then
+			geeknote find $(date +%m.%d)
+		else
+			echo 'invalid'
+		fi
+	else
+		echo 'invalid'
+	fi
 fi
