@@ -1,0 +1,4 @@
+#!/bin/bash
+# output for screensaver
+echo -e "\n$(/usr/local/bin/fortune)"
+sleep 5
