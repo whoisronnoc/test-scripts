@@ -2,6 +2,7 @@
 # adds your public ssh key to the remote server
 # $1 = user@server
 # $2 = ssh key
+ssh $1 "mkdir -p ~/.ssh"
 if [[ -n "$2" ]]; then
   cat $2 | ssh $1 "cat >> ~/.ssh/authorized_keys"
 else
