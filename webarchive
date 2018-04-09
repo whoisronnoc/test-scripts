@@ -1,0 +1,4 @@
+#/bin/sh
+# archive website using wget
+# ./webarchive [-X /paths/to/exclude] [url]
+wget -nc -k -r -p -U Mozilla $@
