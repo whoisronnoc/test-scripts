@@ -1,0 +1,13 @@
+#!/bin/bash
+# script to emove finder from dock:
+# hide dots
+# remove finder
+# restart dock
+# show dots
+killall Dock
+defaults write com.apple.dock show-process-indicators -bool false
+echo "remove finder now"
+sleep 5
+defaults write com.apple.dock show-process-indicators -bool true
+# killall Dock
+
