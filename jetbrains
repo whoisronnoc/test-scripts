@@ -1,0 +1,10 @@
+#/bin/bash
+# script to choose intellij registration key
+# echo "$1"
+if [[ "$1" == "work" ]]; then 
+	echo "work"
+	cp -f ~/dev/shenanigans/keys/idea-work.key ~/Library/Preferences/IntelliJIdea2017.1/idea.key
+elif [[ "$1" == "edu" ]]; then
+	echo "edu"
+	cp -f ~/dev/shenanigans/keys/idea-edu.key ~/Library/Preferences/IntelliJIdea2017.1/idea.key
+fi
