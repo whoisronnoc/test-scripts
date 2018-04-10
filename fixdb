@@ -1,0 +1,4 @@
+#!/bin/sh
+# kill then restart mysql server
+sudo killbyname mysql
+sudo /usr/local/mysql/support-files/mysql.server restart
