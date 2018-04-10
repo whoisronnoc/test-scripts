@@ -1,0 +1,3 @@
+#!/bin/bash
+# find running process by name
+ps -ef | grep $1
