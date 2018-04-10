@@ -1,0 +1,3 @@
+#!/bin/bash
+# speak fortune out loud
+fortune | tee>(say)
