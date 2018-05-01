@@ -1,0 +1,4 @@
+#!/bin/bash
+# move files to trash from cli
+files=$@
+mv $files ~/.Trash
